@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main() {
+    int a[5]={5,2,3,1,4};
+    int max=0,max2=0,n;
+    scanf("%d",&n);
+    if(a[0]>a[1]){
+        max=a[0];
+        max2=a[1];
+    }
+    else{
+        max=a[1];
+        max2=a[0];
+    }
+    for(int i=0;i<n;i++){
+        if(max<a[i]){
+            max2=max;
+            max=a[i];
+        }
+        if(max2<a[i] && a[i]<max){
+            max2=a[i];
+        }
+    }
+    printf("max=%d \nmax2=%d",max,max2);
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+  Length=5
+  max=5 
+  max2=4
