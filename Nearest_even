@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<stdbool.h>
+bool verify(int n){
+    while(n>0){
+        int rem=n%10;
+        if(rem==0){
+            return false;
+        }
+        if(rem%2!=0){
+            return false;
+        }
+        n=n/10;
+    }
+    return true;
+}
+int closesteven(int n){
+    int h=n,l=n;
+    while(1){
+        h++;
+        if(verify(h)){
+            break;
+        }
+    }
+    while(1){
+        l--;
+        if(verify(l)){
+            break;
+        }
+    }
+    int d1=h-n,d2=n-l;
+    if(d1>d2){
+        return l;
+    }
+    else{
+        return h;
+    }
+}
+int main(){
+    int n,res;
+    scanf("%d",&n);
+    res=closesteven(n);
+    printf("%d",res);
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+  17
+  Nearest even: 22
